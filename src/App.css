@@ -1,0 +1,53 @@
+.App {
+  font-family: haveltica ,verdana;
+  margin-top: 1rem;
+}
+.App .header {
+
+}
+.header p {
+  width: 7rem;
+  color: #ff3333;
+}
+.title {
+  font-family: haveltica;
+  color: #ff3333;
+}
+.heading {
+  font-family: roboto;
+  font-size: 1.3em;
+  color: #ff3333;
+  text-transform: uppercase;
+  font-weight: bold;
+  word-spacing: 5px;
+  margin: 10px 5px 5px;
+  box-sizing: border-box;
+}
+.content-wrapper {
+  padding: 0.5rem;
+  background-color: #eee;
+  border-radius: 0.3rem;
+  color: #3c3c3c;
+}
+
+.content-wrapper .selcEntity {
+  font-family: roboto;
+  font-size: 1.25rem;
+  color: #6c6c6c;
+  margin: .6rem 0 0
+}
+.drpDwn {
+  width: 13rem;
+}
+.drpDwn a {
+
+}
+.entityList {
+  margin: 0.75rem 0;
+}
+.entityList li {
+  list-style: none;
+}
+.center {
+  padding-left: 3rem;
+}
