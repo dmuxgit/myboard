@@ -1,0 +1,124 @@
+{
+  "plan" : [
+    {
+      "region": "America",
+      "entity": "USA",
+      "status": "active"
+    },
+    {
+      "region": "America",
+      "entity": "Canada",
+      "status": "active"
+    },
+    {
+      "region": "America",
+      "entity": "Mexico",
+      "status": "active"
+    },
+    {
+      "region": "America",
+      "entity": "USA",
+      "status": "active"
+    },
+    {
+      "region": "America",
+      "entity": "Cuba",
+      "status": "inactive"
+    },
+    {
+      "region": "Africa",
+      "entity": "South Africa",
+      "status": "active"
+    },
+    {
+      "region": "Africa",
+      "entity": "Nigeria",
+      "status": "active"
+    },
+    {
+      "region": "Africa",
+      "entity": "Mali",
+      "status": "inactive"
+    },
+    {
+      "region": "Africa",
+      "entity": "Egypt",
+      "status": "active"
+    },
+    {
+      "region": "Asia",
+      "entity": "India",
+      "status": "active"
+    },
+    {
+      "region": "Asia",
+      "entity": "Bangladesh",
+      "status": "active"
+    },
+    {
+      "region": "Asia",
+      "entity": "China",
+      "status": "active"
+    },
+    {
+      "region": "Asia",
+      "entity": "Indonesia",
+      "status": "inactive"
+    },
+    {
+      "region": "Asia",
+      "entity": "South Korea",
+      "status": "active"
+    },
+    {
+      "region": "Europe",
+      "entity": "United Kingdom",
+      "status": "active"
+    },
+    {
+      "region": "Europe",
+      "entity": "France",
+      "status": "active"
+    },
+    {
+      "region": "Europe",
+      "entity": "Austria",
+      "status": "inactive"
+    },
+    {
+      "region": "Europe",
+      "entity": "Germany",
+      "status": "active"
+    },
+    {
+      "region": "Europe",
+      "entity": "Spain",
+      "status": "active"
+    },
+    {
+      "region": "Europe",
+      "entity": "Norway",
+      "status": "active"
+    },
+    {
+      "region": "Oceania",
+      "entity": "Australia",
+      "status": "active"
+    },
+    {
+      "region": "Oceania",
+      "entity": "New Zealand",
+      "status": "active"
+    },
+    {
+      "region": "Oceania",
+      "entity": "Philippines",
+      "status": "active"
+    },
+    {
+      "region": "Oceania",
+      "entity": "Fiji",
+      "status": "active"
+    }
+  ]
+}
