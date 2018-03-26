@@ -4,37 +4,35 @@ export default class NavigationBar extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      selectedEntity: 'Select a Region'
+      selectedRegion: 'Select a Region'
     };
+    this.selectedRegion = 'Select a Region';
     this.handleChange = this.handleChange.bind(this);
+    this.regionsArr = this.props.regionsUniqArr;
+    this.test = '';
+  }
+
+  sendToParent() {
+    this.props.getRegionsEntityList(this.state.selectedRegion);
   }
 
   handleChange(e) {
     this.setState({
-      selectedEntity: e.currentTarget.textContent
+      selectedRegion: e.currentTarget.textContent
     });
-    this.onChangeRegion();
-  }
-
-  onChangeRegion() {
-    if(this.state.selectedEntity === 'Africa') {
-
-    }
+    this.sendToParent();
   }
 
   render() {
+    var regionsList = this.regionsArr.map((region, index) => {
+      return <a key={index} className="dropdown-item" href="#" onClick={this.handleChange}>{region}</a>
+    });
     return (
       <nav className="regions col-sm-6">
         <button className="btn btn-secondary btn-lg dropdown-toggle" type="button" data-toggle="dropdown">
-          {this.state.selectedEntity}
+          {this.state.selectedRegion}
         </button>
-        <div className="dropdown-menu drpDwn">
-          <a className="dropdown-item" href="#" onClick={this.handleChange}>Africa</a>
-          <a className="dropdown-item" href="#" onClick={this.handleChange}>Asia</a>
-          <a className="dropdown-item" href="#" onClick={this.handleChange}>Latin America</a>
-          <a className="dropdown-item" href="#" onClick={this.handleChange}>Oceania</a>
-          <a className="dropdown-item" href="#" onClick={this.handleChange}>Developed regions</a>
-        </div>
+        <div className="dropdown-menu drpDwn">{ regionsList }</div>
       </nav>
     );
   }
