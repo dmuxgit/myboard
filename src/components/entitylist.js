@@ -5,6 +5,7 @@ export default class EntityList extends Component {
     super(props);
 
     this.selcEntityName = '';
+    this.entityArr = this.props.toRenderEntityArr;
     this.getEntityName = this.getEntityName.bind(this);
   }
 
@@ -14,14 +15,11 @@ export default class EntityList extends Component {
   }
 
   render() {
+    var renderEntities = this.entityArr.map((entity, index) => {
+      return <button key={index} type="button" className="btn btn-success" onClick={this.getEntityName}> { entity } </button>
+    });
     return (
-      <div className="btn-group-vertical">
-        <button type="button" className="btn btn-success" onClick={this.getEntityName}>USA</button>
-        <button type="button" className="btn btn-success" onClick={this.getEntityName}>Canada</button>
-        <button type="button" className="btn btn-success" onClick={this.getEntityName}>Mexico</button>
-        <button type="button" className="btn btn-success" onClick={this.getEntityName} disabled>Cuba</button>
-        <button type="button" className="btn btn-success" onClick={this.getEntityName}>Panama</button>
-      </div>
+      <div className="btn-group-vertical">{renderEntities}</div>
     );
   }
 }
