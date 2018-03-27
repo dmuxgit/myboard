@@ -13,14 +13,17 @@ export default class NavigationBar extends Component {
   }
 
   sendToParent() {
-    this.props.getRegionsEntityList(this.state.selectedRegion);
+    this.props.getRegionVal(this.state.selectedRegion);
   }
 
+  componentDidUpdate() {
+    this.sendToParent();
+  }
+  
   handleChange(e) {
     this.setState({
       selectedRegion: e.currentTarget.textContent
     });
-    this.sendToParent();
   }
 
   render() {
