@@ -4,7 +4,8 @@ export default class NavigationBar extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      selectedRegion: 'Select a Region'
+      selectedRegion: 'Select a Region',
+      renderEntities: false
     };
     this.selectedRegion = 'Select a Region';
     this.handleChange = this.handleChange.bind(this);
@@ -19,10 +20,11 @@ export default class NavigationBar extends Component {
   componentDidUpdate() {
     this.sendToParent();
   }
-  
+
   handleChange(e) {
     this.setState({
-      selectedRegion: e.currentTarget.textContent
+      selectedRegion: e.currentTarget.textContent,
+      renderEntities: true
     });
   }
 
