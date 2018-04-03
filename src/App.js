@@ -17,15 +17,19 @@ export default class App extends Component {
 
     this.state = {
       selectedEntity: '',
-      entityList: []
+      entityList: [],
+      selcRegionValue: [],
+      data: [],
+      toRenderEntityArrSt: [],
+      renderEntities: ''
     };
     this.regionsArr = [];
     this.regionsSet = '';
     this.regionsUniqArr = [];
     this.toRenderEntityArr = [];
-    this.selcRegionValue = '';
-    this.getRegionsList = this.getRegionsList.bind(this);
+    //this.selcRegionValue = '';
     this.getRegionVal = this.getRegionVal.bind(this);
+    //this.getRegionVal = '';
   }
 
   componentWillMount() {
@@ -69,81 +73,88 @@ request.fail(function(jqXHR, textStatus) {
       this.regionsUniqArr.push(element);
       return this.regionsUniqArr;
     });
+    //this.getRegionVal();
+  }
+  /*componentDidUpdate() {
+    //this.getRegionVal();
   }
 
-  handleSelectedEntity = (entityName) => {
-    this.setState({selectedEntity: entityName});
+  componentWillUpdate() {
+    this.setState({
+      selcRegionValue: this.getRegionVal
+    });
+    //this.getRegionVal();
+    //console.log("test "+ this.state.selcRegionValue);
+  }*/
+
+  handleSelectedEntity = (entityName, flag) => {
+    this.setState({
+      selectedEntity: entityName,
+      renderEntities: flag
+    });
   }
 
-  getRegionVal(regionVal) {
-    this.selcRegionValue = regionVal;
-    //console.log(this.selcRegionValue + " test");
-
-    switch (this.selcRegionValue) {
-      case 'America':
-        this.toRenderEntityArr.length = 0;
+  /*entityListToChild() {
+    if(this.state.selcRegionValue === 'America') {
+      this.toRenderEntityArr.length = 0;
         data.plan.map(element => {
           if(element.region === 'America') {
             this.toRenderEntityArr.push(element.entity);
           }
           return this.toRenderEntityArr;
         });
-        this.toRenderEntityArr.map(val => console.log(val));
-        break;
-        case 'Africa':
-          this.toRenderEntityArr.length = 0;
-          data.plan.map(element => {
-            if(element.region === 'Africa') {
-              this.toRenderEntityArr.push(element.entity);
-            }
-            return this.toRenderEntityArr;
-          });
-          this.toRenderEntityArr.map(val => console.log(val));
-          break;
-        case 'Asia':
-          this.toRenderEntityArr.length = 0;
-          data.plan.map(element => {
-            if(element.region === 'Asia') {
-              this.toRenderEntityArr.push(element.entity);
-            }
-            return this.toRenderEntityArr;
-          });
-          this.toRenderEntityArr.map(val => console.log(val));
-          break;
-        case 'Europe':
-          this.toRenderEntityArr.length = 0;
-          data.plan.map(element => {
-            if(element.region === 'Europe') {
-              this.toRenderEntityArr.push(element.entity);
-            }
-            return this.toRenderEntityArr;
-          });
-          this.toRenderEntityArr.map(val => console.log(val));
-          break;
-        case 'Oceania':
-          this.toRenderEntityArr.length = 0;
-          data.plan.map(element => {
-            if(element.region === 'Oceania') {
-              this.toRenderEntityArr.push(element.entity);
-            }
-            return this.toRenderEntityArr;
-          });
-          this.toRenderEntityArr.map(val => console.log(val));
-          break;
-        default:
-          console.log('default');
     }
-    console.log(this.toRenderEntityArr);
     return this.toRenderEntityArr;
-  }
+  }*/
 
-  getRegionsList(data) {
-    /*this.data.map((val, i) => {
-      this.regionsArr.push(val.region);
-      return this.regionsArr;
-    });
-    //console.log("inside getRegionsList");
-    this.regionsArr.map(val => console.log(val));*/
+  getRegionVal(regionVal) {
+    console.log(regionVal);
+    if(regionVal === 'America') {
+      this.toRenderEntityArr.length = 0;
+        data.plan.map(element => {
+          if(element.region === 'America') {
+            /*this.setState({
+              toRenderEntityArrSt: this.state.toRenderEntityArrSt.concat([element.entity])
+            })*/
+            this.toRenderEntityArr.push(element.entity);
+          }
+          return this.toRenderEntityArr;
+        });
+    } else if(regionVal === 'Africa') {
+      this.toRenderEntityArr.length = 0;
+        data.plan.map(element => {
+          if(element.region === 'Africa') {
+            this.toRenderEntityArr.push(element.entity);
+          }
+          return this.toRenderEntityArr;
+        });
+    } else if(regionVal === 'Asia') {
+      this.toRenderEntityArr.length = 0;
+        data.plan.map(element => {
+          if(element.region === 'Asia') {
+            this.toRenderEntityArr.push(element.entity);
+          }
+          return this.toRenderEntityArr;
+        });
+    } else if(regionVal === 'Europe') {
+      this.toRenderEntityArr.length = 0;
+        data.plan.map(element => {
+          if(element.region === 'Europe') {
+            this.toRenderEntityArr.push(element.entity);
+          }
+          return this.toRenderEntityArr;
+        });
+    } else if(regionVal === 'Oceania') {
+      this.toRenderEntityArr.length = 0;
+        data.plan.map(element => {
+          if(element.region === 'Oceania') {
+            this.toRenderEntityArr.push(element.entity);
+          }
+          return this.toRenderEntityArr;
+        });
+    }
+    this.toRenderEntityArr.map(val => console.log(val));
+    return this.toRenderEntityArr;
   }
 
   render() {
@@ -161,7 +172,7 @@ request.fail(function(jqXHR, textStatus) {
           </div>
           <div className="row">
             <div className="col-sm-2 entityList">
-              <EntityList toRenderEntityArr={this.toRenderEntityArr} onEntitySelection={this.handleSelectedEntity}/>
+                <EntityList toRenderEntityArr={this.toRenderEntityArr} onEntitySelection={this.handleSelectedEntity}/>              
             </div>
             <div className="col-sm-7 center"><p>Column 2</p>
             </div>
